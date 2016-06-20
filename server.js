@@ -103,8 +103,7 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-//            res.send('Hello Verity!'); //self.cache_get('index.html') );
-            res.send("<p>Hello there Verity! <p><img src='static/asbw.jpg'>"); //self.cache_get('index.html') );
+            res.send("<p><b>Hello lovely Verity!</b> <p><img src='static/asbw.jpg'>");
         };
 	
 	// self.routes['/asbw.jpg'] = function(req, res) {
