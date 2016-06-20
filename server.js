@@ -113,7 +113,7 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><h2>Hello lovely Verity!</h2> <p><a href='static/timetable.html'>Timetable</a><p><img src='static/asbw.jpg'></body></html>");
+            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><h2>Hello lovely Verity!</h2> <p><a href='timetable.html'>Timetable</a><p><img src='static/asbw.jpg'></body></html>");
         };
 
     };
@@ -127,6 +127,7 @@ var SampleApp = function() {
         self.createRoutes();
         self.app = express();
 	self.app.use('/static', express.static(__dirname + '/resources'));
+	self.app.use('/static', express.static(__dirname + '/pages'));
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
