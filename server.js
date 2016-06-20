@@ -3,6 +3,17 @@
 var express = require('express');
 var fs      = require('fs');
 
+/**
+Content we need:
+  Welcome
+  Timetable
+  Locations
+  Where to stay / hotels
+  Transport & travel
+  RSVP
+  Wedding list
+*/
+
 
 /**
  *  Define the sample application.
@@ -102,7 +113,7 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><h2>Hello lovely Verity!</h2> <p><img src='static/asbw.jpg'></body></html>");
+            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><h2>Hello lovely Verity!</h2> <p><a href='static/timetable.html'>Timetable</a><p><img src='static/asbw.jpg'></body></html>");
         };
 
     };
