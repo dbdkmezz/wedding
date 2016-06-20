@@ -120,7 +120,7 @@ var SampleApp = function() {
      */
     self.initializeServer = function() {
         self.createRoutes();
-        self.app = express();//.createServer();
+        self.app = express.createServer();
 //	self.app.use('/static', express.static(__dirname + '/resources'));
 
 
