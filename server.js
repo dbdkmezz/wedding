@@ -103,8 +103,8 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send('Hello Verity!'); //self.cache_get('index.html') );
-            res.send("<img src='asbw.jpg'>"); //self.cache_get('index.html') );
+//            res.send('Hello Verity!'); //self.cache_get('index.html') );
+            res.send("<p>Hello there Verity! <p><img src='asbw.jpg'>"); //self.cache_get('index.html') );
         };
     };
 
