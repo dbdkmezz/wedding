@@ -44,7 +44,6 @@ var SampleApp = function() {
 
         //  Local cache for static content.
         self.zcache['index.html'] = fs.readFileSync('./index.html');
-//        self.zcache['asbw.jpg'] = fs.readFileSync('./asbw.jpg');
     };
 
 
@@ -105,10 +104,6 @@ var SampleApp = function() {
             res.setHeader('Content-Type', 'text/html');
             res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><h2>Hello lovely Verity!</h2> <p><img src='static/asbw.jpg'></body></html>");
         };
-	
-	// self.routes['/asbw.jpg'] = function(req, res) {
-	//     self.cache_get('asbw.jpg');
-        // };
 
     };
 
@@ -119,9 +114,8 @@ var SampleApp = function() {
      */
     self.initializeServer = function() {
         self.createRoutes();
-        self.app = express(); //.createServer();
+        self.app = express();
 	self.app.use('/static', express.static(__dirname + '/resources'));
-
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
