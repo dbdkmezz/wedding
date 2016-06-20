@@ -103,8 +103,8 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send('Hello Verity!'); //self.cache_get('index.html') );
-//            res.send("<p>Hello there Verity! <p><img src='asbw.jpg'>"); //self.cache_get('index.html') );
+//            res.send('Hello Verity!'); //self.cache_get('index.html') );
+            res.send("<p>Hello there Verity! <p><img src='asbw.jpg'>"); //self.cache_get('index.html') );
         };
 	
 	// self.routes['/asbw.jpg'] = function(req, res) {
@@ -121,7 +121,7 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express(); //.createServer();
-//	self.app.use('/static', express.static(__dirname + '/resources'));
+	self.app.use('/static', express.static(__dirname + '/resources'));
 
 
         //  Add handlers for the app (from the routes).
