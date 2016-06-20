@@ -52,7 +52,7 @@ var SampleApp = function() {
      *  Retrieve entry (content) from cache.
      *  @param {string} key  Key identifying content to retrieve from cache.
      */
-//    self.cache_get = function(key) { return self.zcache[key]; };
+    self.cache_get = function(key) { return self.zcache[key]; };
 
 
     /**
