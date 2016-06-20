@@ -113,7 +113,7 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><h2>Hello lovely Verity!</h2> <p><a href='timetable.html'>Timetable</a><p><img src='static/asbw.jpg'></body></html>");
+            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body><p><a href='timetable.html'>Timetable</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a><p><h2>Hello lovely Verity!</h2><p><img src='static/asbw.jpg'></body></html>");
         };
 
     };
