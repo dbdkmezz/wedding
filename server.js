@@ -38,12 +38,13 @@ var SampleApp = function() {
      *  Populate the cache.
      */
     self.populateCache = function() {
-        // if (typeof self.zcache === "undefined") {
-        //     self.zcache = { 'index.html': '' };
-        // }
+        if (typeof self.zcache === "undefined") {
+            self.zcache = { 'index.html': '' };
+        }
 
-        // //  Local cache for static content.
-        // self.zcache['index.html'] = fs.readFileSync('./index.html');
+        //  Local cache for static content.
+        self.zcache['index.html'] = fs.readFileSync('./index.html');
+        self.zcache['asbw.jpg'] = fs.readFileSync('./asbw.jpg');
     };
 
 
@@ -51,7 +52,7 @@ var SampleApp = function() {
      *  Retrieve entry (content) from cache.
      *  @param {string} key  Key identifying content to retrieve from cache.
      */
-    self.cache_get = function(key) { return self.zcache[key]; };
+//    self.cache_get = function(key) { return self.zcache[key]; };
 
 
     /**
@@ -103,6 +104,7 @@ var SampleApp = function() {
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
             res.send('Hello Verity!'); //self.cache_get('index.html') );
+            res.send("<img src='asbw.jpg'>"); //self.cache_get('index.html') );
         };
     };
 
