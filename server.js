@@ -99,7 +99,15 @@ var SampleApp = function() {
     /*  ================================================================  */
     /*  App server functions (main app logic here).                       */
     /*  ================================================================  */
+var pages = [];
 
+    self.loadFiles = function() {
+	var PAGES_LOCATION = './pages/';
+	var filenames = fs.readdirSync(PAGES_LOCATION);
+	for(file of filenames) {
+	    pages.push({name: file, content: fs.readFileSync(PAGES_LOCATION + file)});
+	}
+    }
     /**
      *  Create the routing table entries + handlers for the application.
      */
@@ -111,13 +119,28 @@ var SampleApp = function() {
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
-	var menu = "<p><a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a></p>"
+	var header = "<html><head><title>Verity and Paul's Wedding Website</title></head><body>";
+	var footer = "</body></html>"
+
+	var menu = "<p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a></p>"
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send("<html><head><title>Verity and Paul's Wedding Website</title></head><body>" + menu + "<p><h2>Hello lovely Verity!</h2><p><img src='static/asbw.jpg'>" + menu + "</body></html>");
+            res.send(header + menu + "<p><h2>Hello lovely Verity!</h2><p><img src='resources/asbw.jpg'>" + menu + footer);
         };
 
+	function addPage(page) {
+	    return function(req, res) {
+		res.setHeader('Content-Type', 'text/html');
+		res.send(header + menu + page.content + menu + footer);
+	    }
+	}
+
+	for(var i = 0; i < pages.length; i++) {
+	    var page = pages[i];
+//	    console.log(page.content);
+	    self.routes['/' + page.name] = addPage(page); 
+	}
     };
 
 
@@ -126,10 +149,11 @@ var SampleApp = function() {
      *  the handlers.
      */
     self.initializeServer = function() {
+	self.loadFiles();
         self.createRoutes();
         self.app = express();
-	self.app.use('/static', express.static(__dirname + '/resources'));
-	self.app.use('/', express.static(__dirname + '/pages'));
+	self.app.use('/resources', express.static(__dirname + '/resources'));
+//	self.app.use('/', express.static(__dirname + '/pages'));
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
