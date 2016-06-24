@@ -104,7 +104,9 @@ var pages = [];
     self.loadFiles = function() {
 	var PAGES_LOCATION = './pages/';
 	var filenames = fs.readdirSync(PAGES_LOCATION);
-	for(file of filenames) {
+
+	for(var i = 0; i < filenames.length; i++) {
+	    var file = filenames[i];
 	    pages.push({name: file, content: fs.readFileSync(PAGES_LOCATION + file)});
 	}
     }
