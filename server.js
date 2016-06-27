@@ -100,6 +100,7 @@ var SampleApp = function() {
     /*  App server functions (main app logic here).                       */
     /*  ================================================================  */
 var pages = [];
+var homePage;
 
     self.loadFiles = function() {
 	var PAGES_LOCATION = './pages/';
@@ -109,6 +110,8 @@ var pages = [];
 	    var file = filenames[i];
 	    pages.push({name: file, content: fs.readFileSync(PAGES_LOCATION + file)});
 	}
+
+	homePage = fs.readFileSync("./home.html")
     }
     /**
      *  Create the routing table entries + handlers for the application.
@@ -128,7 +131,7 @@ var pages = [];
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send(header + menu + "<p><h2>Hello lovely Verity!</h2><p><img src='resources/asbw.jpg'>" + menu + footer);
+            res.send(header + menu + homePage + menu + footer);
         };
 
 	function addPage(page) {
