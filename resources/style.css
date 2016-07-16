@@ -1,3 +1,10 @@
+.example {
+    height: 400px;
+    background-image: url(asbw.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 div.menu {
     font-size: 150%;
 }
@@ -10,6 +17,9 @@ div.menu a {
 @media (min-width: 800px) {
     div.menu {
 	font-size: 100%;
+    }
+    .example {
+        background-image: url(piggies.jpg);
     }
 }
 
