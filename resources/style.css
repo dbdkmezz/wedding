@@ -1,0 +1,16 @@
+div.menu {
+    font-size: 150%;
+}
+
+div.menu a {
+    white-space: pre;
+    color: blue;
+}
+
+@media (min-width: 800px) {
+    div.menu {
+	font-size: 100%;
+    }
+}
+
+

@@ -124,20 +124,20 @@ var homePage;
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
-	var header = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Verity and Paul's Wedding Website</title></head><body>";
+	var header = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Verity and Paul's Wedding Website</title><link rel=\"stylesheet\" href=\"resources/style.css\"></head><body>";
 	var footer = "</body></html>"
 
-	var menu = "<p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a></p>"
+	var menu = "<div class=\"menu\"><p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a></p></div>"
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send(header + menu + homePage + menu + footer);
+            res.send(header + menu + "<div class=\"body\">" + homePage + menu + "</div>" + footer);
         };
 
 	function addPage(page) {
 	    return function(req, res) {
 		res.setHeader('Content-Type', 'text/html');
-		res.send(header + menu + page.content + menu + footer);
+		res.send(header + menu + "<div class=\"body\">" + page.content + "</div>" + menu + footer);
 	    }
 	}
 
