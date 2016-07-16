@@ -121,7 +121,7 @@ var pages = [];
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
-	var header = "<html><head><title>Verity and Paul's Wedding Website</title></head><body>";
+	var header = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Verity and Paul's Wedding Website</title></head><body>";
 	var footer = "</body></html>"
 
 	var menu = "<p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a></p>"
