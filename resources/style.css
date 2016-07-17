@@ -20,6 +20,11 @@ h1 {
     font-size: 140%;
 }
 
+h2 {
+    margin-top: 20px;
+    font-size: 120%;
+}
+
 td {
     padding-right:10px;
 }
@@ -42,6 +47,10 @@ div.menu a {
     
     h1 {
 	font-size: 120%;
+    }
+
+    h2 {
+	font-size: 110%;
     }
 
     .example {

@@ -127,11 +127,11 @@ var homePage;
 	var header = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Verity and Paul's Wedding Website</title><link rel=\"stylesheet\" href=\"resources/style.css\"></head><body>";
 	var footer = "</body></html>"
 
-	var menu = "<div class=\"menu\"><p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='transport.html'>Getting here</a> | <a href='wheretostay.html'>Where to stay</a></p></div>"
+	var menu = "<div class=\"menu\"><p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='gifts.html'>Gift list</a> | <a href='locations.html'>The venues</a> | <a href='rsvp.html'>RSVP</a> | <a href='wheretostay.html'>Where to stay</a> | <a href='evening.html'>Evening reception</a></p></div>"
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send(header + menu + "<div class=\"body\">" + homePage + menu + "</div>" + footer);
+            res.send(header + menu + "<div class=\"body\">" + homePage + "</div>" + menu + footer);
         };
 
 	function addPage(page) {
