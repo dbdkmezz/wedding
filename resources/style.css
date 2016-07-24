@@ -29,7 +29,12 @@ h2 {
 }
 
 td {
-    padding-right:10px;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+img {
+    max-width:100%;
 }
 
 div.menu a {
@@ -55,7 +60,7 @@ div.menu a {
     h2 {
 	font-size: 110%;
     }
-
+    
     .example {
         background-image: url(piggies.jpg);
     }
