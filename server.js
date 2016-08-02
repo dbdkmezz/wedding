@@ -110,7 +110,8 @@ var homePage;
 	    var file = filenames[i];
 	    pages.push({name: file, content: fs.readFileSync(PAGES_LOCATION + file)});
 	}
-
+	pages.push({name: 'rsvp', content: fs.readFileSync(PAGES_LOCATION + 'rsvp.html')});
+	
 	homePage = fs.readFileSync("./home.html")
     }
     /**
