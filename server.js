@@ -101,6 +101,7 @@ var SampleApp = function() {
     /*  ================================================================  */
 var pages = [];
 var homePage;
+var bunting;
 
     self.loadFiles = function() {
 	var PAGES_LOCATION = './pages/';
@@ -113,6 +114,7 @@ var homePage;
 	pages.push({name: 'rsvp', content: fs.readFileSync(PAGES_LOCATION + 'rsvp.html')});
 	
 	homePage = fs.readFileSync("./home.html")
+	bunting = fs.readFileSync("./extra/bunting.svg")
     }
     /**
      *  Create the routing table entries + handlers for the application.
@@ -132,13 +134,13 @@ var homePage;
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send(header + menu + "<div class=\"body\">" + homePage + "</div>" + menu + footer);
+            res.send(bunting + header + menu + "<div class=\"body\">" + homePage + "</div>" + menu + footer);
         };
 
 	function addPage(page) {
 	    return function(req, res) {
 		res.setHeader('Content-Type', 'text/html');
-		res.send(header + menu + "<div class=\"body\">" + page.content + "</div>" + menu + footer);
+		res.send(bunting + header + menu + "<div class=\"body\">" + page.content + "</div>" + menu + footer);
 	    }
 	}
 
