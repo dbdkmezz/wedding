@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nodemon -e html server.js 
+nodemon -e html,js server.js 
