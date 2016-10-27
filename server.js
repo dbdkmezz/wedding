@@ -112,6 +112,9 @@ var bunting;
 	    pages.push({name: file, content: fs.readFileSync(PAGES_LOCATION + file)});
 	}
 	pages.push({name: 'rsvp', content: fs.readFileSync(PAGES_LOCATION + 'rsvp.html')});
+	pages.push({name: 'photo', content: fs.readFileSync(PAGES_LOCATION + 'photos.html')});
+	pages.push({name: 'photos', content: fs.readFileSync(PAGES_LOCATION + 'photos.html')});
+	pages.push({name: 'photo.html', content: fs.readFileSync(PAGES_LOCATION + 'photos.html')});
 	
 	homePage = fs.readFileSync("./home.html")
 	bunting = fs.readFileSync("./extra/bunting.svg")
@@ -130,7 +133,7 @@ var bunting;
 	var header = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" charset=\"UTF-8\"><title>Verity and Paul's Wedding Website</title><link rel=\"stylesheet\" href=\"resources/style.css\"></head><body>";
 	var footer = "</body></html>"
 
-	var menu = "<div class=\"menu\"><p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='locations.html'>The venues</a> | <a href='wheretostay.html'>Staying in St Albans</a> | <a href='evening.html'>Evening reception</a> | <a href='buffet.html'>Buffet</a> | <a href='gifts.html'>Gift list</a></p></div>"
+	var menu = "<div class=\"menu\"><p><a href='/'>Home</a> | <a href='timetable.html'>Timetable</a> | <a href='locations.html'>The venues</a> | <a href='wheretostay.html'>Staying in St Albans</a> | <a href='photos.html'>Share your photos</a> | <a href='buffet.html'>Buffet</a> | <a href='gifts.html'>Gift list</a></p></div>"
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
